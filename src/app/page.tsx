@@ -1,7 +1,12 @@
+import { fetchUserProfile } from "~/app/actions/userActions";
+import HomeContent from "~/components/HomeContent";
+
 export default async function Home() {
+  const user = await fetchUserProfile();
+
   return (
     <div>
-      <h1>Home</h1>
+      <HomeContent user={user} />
     </div>
   );
 }
