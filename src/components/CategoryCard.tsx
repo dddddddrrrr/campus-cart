@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { cn } from "~/lib/utils";
+import { motion } from "framer-motion";
 
 interface CategoryCardProps {
   id: number;
@@ -23,10 +24,15 @@ export function CategoryCard({
       href={`/category/${id}`}
       className="group transition-all duration-300 hover:shadow-md"
     >
-      <div className="flex flex-col items-center rounded-xl border bg-white p-4 transition-all hover:border-primary/20">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        className="flex flex-col items-center rounded-xl border bg-white p-4 hover:border-primary/20"
+      >
         <div
           className={cn(
-            "mb-3 flex h-14 w-14 items-center justify-center rounded-full transition-transform group-hover:scale-110",
+            "mb-3 flex h-14 w-14 items-center justify-center rounded-full group-hover:scale-110",
             color,
           )}
         >
@@ -34,7 +40,7 @@ export function CategoryCard({
         </div>
         <h3 className="text-center text-sm font-medium">{name}</h3>
         <p className="mt-1 text-xs text-muted-foreground">{count} 件</p>
-      </div>
+      </motion.div>
     </Link>
   );
 }

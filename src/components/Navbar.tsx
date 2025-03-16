@@ -71,7 +71,7 @@ export function Navbar() {
         {!isMobile && (
           <nav className="hidden items-center gap-6 md:flex">
             <Link
-              href="/categories"
+              href="/category"
               className="font-medium transition-colors hover:text-primary"
             >
               分类

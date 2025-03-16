@@ -68,6 +68,10 @@ model Product {
     categoryId    Int //分类
     createdAt     DateTime @default(now())
     updatedAt     DateTime @updatedAt
+    isFeatured    Boolean  @default(false) //是否为特色商品
+    isNew         Boolean  @default(false) //是否为新品
+    rating        Float    @default(0) //评分
+    discount      Float    @default(0) //折扣
 
     userProduct userProduct[]
     category    Category      @relation(fields: [categoryId], references: [id])
