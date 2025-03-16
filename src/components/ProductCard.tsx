@@ -87,12 +87,12 @@ export function ProductCard({
           <div className="absolute left-3 top-3 flex flex-col gap-2">
             {isNew && (
               <Badge className="animate-fade-in bg-primary px-2.5 font-medium text-white">
-                New
+                新品
               </Badge>
             )}
             {discount > 0 && (
               <Badge className="animate-fade-in bg-destructive px-2.5 font-medium text-white delay-100">
-                {discount}% Off
+                {discount}% 折扣
               </Badge>
             )}
           </div>

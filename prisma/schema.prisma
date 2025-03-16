@@ -58,15 +58,16 @@ model User {
 }
 
 model Product {
-    id          Int      @id @default(autoincrement())
-    name        String //商品名称
-    price       Float //价格
-    stock       Int      @default(0) //库存
-    description String? //描述
-    imageUrl    String? //图片
-    categoryId  Int //分类
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+    id            Int      @id @default(autoincrement())
+    name          String //商品名称
+    price         Float //价格
+    originalPrice Float //原价
+    stock         Int      @default(0) //库存
+    description   String? //描述
+    imageUrl      String? //图片
+    categoryId    Int //分类
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
 
     userProduct userProduct[]
     category    Category      @relation(fields: [categoryId], references: [id])
@@ -80,6 +81,7 @@ model Product {
 model Category {
     id       Int       @id @default(autoincrement())
     name     String    @unique
+    icon     String?
     products Product[]
 
     @@index([name])

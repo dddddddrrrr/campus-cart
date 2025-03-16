@@ -4,25 +4,25 @@ import Image from "next/image";
 const testimonials = [
   {
     id: "1",
-    text: "I sold my old laptop within hours of listing it. The process was super easy and the buyer was right on campus!",
-    author: "Jessica Chen",
-    role: "Junior, Computer Science",
+    text: "我在校内很快就卖掉了我的旧笔记本电脑。这个过程非常简单，买家就在校园里！",
+    author: "艾琳",
+    role: "计算机科学专业大二",
     avatarUrl:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop",
   },
   {
     id: "2",
-    text: "Found all my textbooks at half the bookstore price. This marketplace saved me hundreds of dollars this semester alone.",
-    author: "Marcus Johnson",
-    role: "Sophomore, Business",
+    text: "我找到了所有我需要的教科书，价格比书店便宜了一半。这个市场平台让我在本学期省了数百美元。",
+    author: "迈克尔·约翰逊",
+    role: "商业专业大二",
     avatarUrl:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop",
   },
   {
     id: "3",
-    text: "As a grad student on a budget, this platform has been a lifesaver for finding affordable furniture and household items.",
-    author: "Sophia Rodriguez",
-    role: "Graduate Student, Psychology",
+    text: "作为一名预算有限的研究生，这个平台让我找到了物廉价美的家具和家居用品。",
+    author: "索菲娅·罗德里格斯",
+    role: "研究生，心理学",
     avatarUrl:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop",
   },
@@ -33,10 +33,9 @@ export function Testimonials() {
     <section className="bg-primary/5 px-4 py-20">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="mb-3 text-2xl font-bold">What Students Say</h2>
+          <h2 className="mb-3 text-2xl font-bold">学生之声</h2>
           <p className="mx-auto max-w-lg text-muted-foreground">
-            Join thousands of students who are already using our platform to buy
-            and sell
+            加入数千名已经在使用我们平台的学生
           </p>
         </div>
 

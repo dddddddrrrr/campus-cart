@@ -9,16 +9,15 @@ export function CallToAction() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
             <TrendingUpIcon className="h-3.5 w-3.5" />
-            <span>Join 10,000+ students today</span>
+            <span>加入 10,000+ 名学生</span>
           </div>
 
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-            Ready to buy or sell on campus?
+            任何商品，校园买卖
           </h2>
 
           <p className="mx-auto mb-8 max-w-xl text-lg text-white/80">
-            Join our vibrant marketplace community and discover the easiest way
-            to buy and sell within your campus.
+            加入我们的 vibrant marketplace 社区，发现校园买卖的最简单方式。
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -27,7 +26,7 @@ export function CallToAction() {
               className="rounded-full bg-white px-6 text-primary hover:bg-white/90"
               asChild
             >
-              <Link href="/sell">Start Selling</Link>
+              <Link href="/sell">开始卖货</Link>
             </Button>
             <Button
               size="lg"
@@ -36,7 +35,7 @@ export function CallToAction() {
               asChild
             >
               <Link href="/signup">
-                Create Account
+                创建账号
                 <ArrowRightIcon className="ml-2 h-4 w-4" />
               </Link>
             </Button>

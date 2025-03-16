@@ -63,8 +63,8 @@ export function Navbar() {
           href="/"
           className="flex items-center gap-2 text-xl font-semibold tracking-tight"
         >
-          <span className="text-primary">Campus</span>
-          <span>Market</span>
+          <span className="text-primary">校园</span>
+          <span>超市</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -74,25 +74,25 @@ export function Navbar() {
               href="/categories"
               className="font-medium transition-colors hover:text-primary"
             >
-              Categories
+              分类
             </Link>
             <Link
               href="/deals"
               className="font-medium transition-colors hover:text-primary"
             >
-              Today&apos;s Deals
+              今日特惠
             </Link>
             <Link
               href="/new"
               className="font-medium transition-colors hover:text-primary"
             >
-              New Arrivals
+              新品
             </Link>
             <Link
               href="/sell"
               className="font-medium transition-colors hover:text-primary"
             >
-              Sell
+              卖货
             </Link>
           </nav>
         )}
@@ -103,7 +103,7 @@ export function Navbar() {
             <div className="relative hidden items-center md:flex">
               <Input
                 type="search"
-                placeholder="Search products..."
+                placeholder="搜索商品..."
                 className="w-[180px] rounded-full border-none bg-secondary/50 py-2 pl-9 pr-4 focus:bg-white lg:w-[280px]"
               />
               <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
@@ -150,8 +150,8 @@ export function Navbar() {
                 className="flex items-center gap-2 text-xl font-semibold tracking-tight"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="text-primary">Campus</span>
-                <span>Market</span>
+                <span className="text-primary">校园</span>
+                <span>超市</span>
               </Link>
               <Button
                 variant="ghost"
@@ -178,42 +178,42 @@ export function Navbar() {
                 className="py-2 font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Categories
+                分类
               </Link>
               <Link
                 href="/deals"
                 className="py-2 font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Today&apos;s Deals
+                今日特惠
               </Link>
               <Link
                 href="/new"
                 className="py-2 font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                New Arrivals
+                新品
               </Link>
               <Link
                 href="/sell"
                 className="py-2 font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Sell
+                卖货
               </Link>
               <Link
                 href="/cart"
                 className="py-2 font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Cart
+                购物车
               </Link>
               <Link
                 href="/profile"
                 className="py-2 font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Profile
+                个人中心
               </Link>
             </nav>
           </div>

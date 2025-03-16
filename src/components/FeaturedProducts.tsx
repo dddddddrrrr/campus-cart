@@ -136,10 +136,8 @@ export function FeaturedProducts() {
       <div className="container mx-auto">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h2 className="mb-2 text-2xl font-bold">Featured Products</h2>
-            <p className="text-muted-foreground">
-              Discover our handpicked selection of top campus essentials
-            </p>
+            <h2 className="mb-2 text-2xl font-bold">功能商品</h2>
+            <p className="text-muted-foreground">探索校园生活所需的一切商品</p>
           </div>
 
           <div className="flex gap-2">
@@ -165,7 +163,18 @@ export function FeaturedProducts() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {visibleProducts.map((product) => (
             <div key={product.id} className="animate-fade-in opacity-0">
-              <ProductCard {...product} />
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                imageUrl={product.imageUrl}
+                category={product.category}
+                isNew={product.isNew}
+                isFeatured={product.isFeatured}
+                discount={product.discount}
+                sellerName={product.sellerName}
+                rating={product.rating}
+              />
             </div>
           ))}
         </div>

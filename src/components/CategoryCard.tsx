@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { cn } from "~/lib/utils";
 
 interface CategoryCardProps {
-  id: string;
+  id: number;
   name: string;
   icon: React.ReactNode;
   count: number;
@@ -33,7 +33,7 @@ export function CategoryCard({
           {icon}
         </div>
         <h3 className="text-center text-sm font-medium">{name}</h3>
-        <p className="mt-1 text-xs text-muted-foreground">{count} items</p>
+        <p className="mt-1 text-xs text-muted-foreground">{count} 件</p>
       </div>
     </Link>
   );

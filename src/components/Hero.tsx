@@ -69,17 +69,16 @@ export function Hero() {
           >
             <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary-foreground backdrop-blur-sm">
               <TrendingUpIcon className="h-3.5 w-3.5" />
-              <span>Trusted by 10,000+ students</span>
+              <span>受 10,000+ 名学生的信赖</span>
             </div>
 
             <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-              Your Campus Marketplace <br />
-              <span className="text-primary">For Everything</span>
+              你的校园超市 <br />
+              <span className="text-primary">任何商品</span>
             </h1>
 
             <p className="mb-8 max-w-xl text-lg text-gray-200 md:text-xl">
-              Buy, sell, and discover amazing deals on textbooks, electronics,
-              furniture, and more right on your campus.
+              在你的校园买到你想要的一切商品，包括教科书、电子产品、家具等。
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -89,7 +88,7 @@ export function Hero() {
                 asChild
               >
                 <Link href="/categories">
-                  Explore Now
+                  探索
                   <ChevronRightIcon className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -99,7 +98,7 @@ export function Hero() {
                 className="rounded-full border-white/30 bg-white/10 px-6 text-white backdrop-blur-sm hover:bg-white/20"
                 asChild
               >
-                <Link href="/sell">Sell Something</Link>
+                <Link href="/sell">卖出商品</Link>
               </Button>
             </div>
           </motion.div>
