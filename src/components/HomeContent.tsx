@@ -1,6 +1,5 @@
 "use client";
 
-import { type User } from "@prisma/client";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { CategoriesSection } from "~/components/CategoriesSection";
@@ -9,7 +8,7 @@ import { Testimonials } from "~/components/Testimonials";
 import { CallToAction } from "~/components/CallToAction";
 import { Hero } from "~/components/Hero";
 
-const HomeContent = ({ user }: { user: User | null }) => {
+const HomeContent = () => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -25,13 +24,13 @@ const HomeContent = ({ user }: { user: User | null }) => {
   }, [controls]);
   return (
     <>
-    <Hero />
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={controls}>
-      <CategoriesSection />
-      <FeaturedProducts />
-      <Testimonials />
-      <CallToAction />
-    </motion.div>
+      <Hero />
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={controls}>
+        <CategoriesSection />
+        <FeaturedProducts />
+        <Testimonials />
+        <CallToAction />
+      </motion.div>
     </>
   );
 };

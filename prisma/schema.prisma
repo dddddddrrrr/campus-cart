@@ -50,6 +50,8 @@ model User {
     password      String?
     role          UserRole
     credit        Float
+    createdAt     DateTime      @default(now())
+    updatedAt     DateTime      @updatedAt
     accounts      Account[]
     sessions      Session[]
     userProduct   userProduct[]
@@ -83,10 +85,12 @@ model Product {
 }
 
 model Category {
-    id       Int       @id @default(autoincrement())
-    name     String    @unique
-    icon     String?
-    products Product[]
+    id        Int       @id @default(autoincrement())
+    name      String    @unique
+    icon      String?
+    products  Product[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     @@index([name])
 }

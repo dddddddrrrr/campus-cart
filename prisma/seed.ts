@@ -1,11 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  // 清除现有数据
-  await prisma.category.deleteMany({});
+  // 清除现有数据 - 先删除产品，再删除分类（因为产品依赖于分类）
   await prisma.product.deleteMany({});
+  await prisma.category.deleteMany({});
 
   // 创建分类数据
   const categories = [
@@ -54,17 +54,17 @@ async function main() {
     categoryMap.set(category.name, createdCategory.id);
   }
 
-  console.log('分类数据创建成功！');
+  console.log("分类数据创建成功！");
 
   // 映射英文分类名称到中文分类名称
   const categoryNameMap = {
-    "Electronics": "电子产品",
-    "Books": "电子书",
+    Electronics: "电子产品",
+    Books: "电子书",
     "Home & Living": "家具",
-    "Sports": "运动用品",
-    "Furniture": "家具",
-    "Fashion": "衣物",
-    "Accessories": "配件",
+    Sports: "运动用品",
+    Furniture: "家具",
+    Fashion: "衣物",
+    Accessories: "配件",
   };
 
   // 特色商品数据
@@ -72,7 +72,8 @@ async function main() {
     {
       name: "MacBook Pro 15-inch (2019)",
       price: 1299,
-      imageUrl: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop",
       category: "Electronics",
       isNew: true,
       isFeatured: true,
@@ -83,7 +84,8 @@ async function main() {
     {
       name: "Wireless Noise Cancelling Headphones",
       price: 199,
-      imageUrl: "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2087&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2087&auto=format&fit=crop",
       category: "Electronics",
       isNew: false,
       isFeatured: true,
@@ -94,7 +96,8 @@ async function main() {
     {
       name: "Calculus Early Transcendentals Textbook",
       price: 89,
-      imageUrl: "https://images.unsplash.com/photo-1584473457406-6240486418e9?q=80&w=2070&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1584473457406-6240486418e9?q=80&w=2070&auto=format&fit=crop",
       category: "Books",
       isNew: false,
       isFeatured: true,
@@ -105,7 +108,8 @@ async function main() {
     {
       name: "Modern Desk Lamp",
       price: 49.99,
-      imageUrl: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop",
       category: "Home & Living",
       isNew: true,
       isFeatured: true,
@@ -116,7 +120,8 @@ async function main() {
     {
       name: "Basketball - Official Size",
       price: 29.99,
-      imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1470&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1470&auto=format&fit=crop",
       category: "Sports",
       isNew: false,
       isFeatured: true,
@@ -127,7 +132,8 @@ async function main() {
     {
       name: "Ergonomic Office Chair",
       price: 199.99,
-      imageUrl: "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?q=80&w=2070&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?q=80&w=2070&auto=format&fit=crop",
       category: "Furniture",
       isNew: false,
       isFeatured: true,
@@ -138,7 +144,8 @@ async function main() {
     {
       name: "Designer Backpack",
       price: 79.99,
-      imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2070&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2070&auto=format&fit=crop",
       category: "Fashion",
       isNew: true,
       isFeatured: true,
@@ -149,7 +156,8 @@ async function main() {
     {
       name: "Water Bottle - 32oz",
       price: 24.99,
-      imageUrl: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=2070&auto=format&fit=crop",
+      imageUrl:
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=2070&auto=format&fit=crop",
       category: "Accessories",
       isNew: false,
       isFeatured: true,
@@ -165,16 +173,19 @@ async function main() {
   for (const product of featuredProducts) {
     const chineseCategoryName = categoryNameMap[product.category];
     const categoryId = categoryMap.get(chineseCategoryName);
-    
+
     if (!categoryId) {
-      console.error(`未找到分类: ${product.category} -> ${chineseCategoryName}`);
+      console.error(
+        `未找到分类: ${product.category} -> ${chineseCategoryName}`,
+      );
       continue;
     }
 
     // 计算原价 (如果有折扣，则原价 = 当前价格 / (1 - 折扣百分比))
-    const originalPrice = product.discount > 0 
-      ? product.price / (1 - product.discount / 100) 
-      : product.price;
+    const originalPrice =
+      product.discount > 0
+        ? product.price / (1 - product.discount / 100)
+        : product.price;
 
     await prisma.product.create({
       data: {
@@ -193,7 +204,7 @@ async function main() {
     });
   }
 
-  console.log('特色商品数据创建成功！');
+  console.log("特色商品数据创建成功！");
 }
 
 void main()

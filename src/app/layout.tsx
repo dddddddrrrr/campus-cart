@@ -8,7 +8,7 @@ import { ThemeProvider } from "~/components/provider/ThemeProvider";
 import AuthProvider from "~/components/provider/AuthProvider";
 import Script from "next/script";
 import { Toaster } from "sonner";
-import UIProvider from "~/components/provider/UIProvider";
+
 
 export const metadata: Metadata = {
   title: "校园超市",
@@ -30,11 +30,9 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <UIProvider>
                 <Script src="https://js.stripe.com/v3/" strategy="lazyOnload" />
                 <Toaster position="top-right" duration={2000} />
                 {children}
-              </UIProvider>
             </ThemeProvider>
           </AuthProvider>
         </TRPCReactProvider>
